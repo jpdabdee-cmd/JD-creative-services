@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Dental Office Concept / Work by Joshua Dabdee</title>
+
+  <style>
+    :root {
+      --bg: #f3f0e8;
+      --text: #111111;
+      --muted: rgba(243, 240, 232, 0.68);
+      --line: rgba(243, 240, 232, 0.76);
+      --soft-line: rgba(243, 240, 232, 0.22);
+      --accent: #ff3b12;
+      --black: #111111;
+      --card: #f3f0e8;
+      --deep-blue: #143351;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      background: var(--black);
+      color: var(--bg);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .project-page {
+      min-height: 100vh;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      font-size: 12px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .brand { font-weight: 900; }
+
+    .nav { display: flex; gap: 18px; color: var(--bg); }
+
+    .nav a, .inline-link {
+      position: relative;
+    }
+
+    .nav a::after, .inline-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    .nav a:hover::after,
+    .nav a:focus-visible::after,
+    .inline-link:hover::after,
+    .inline-link:focus-visible::after { width: 100%; }
+
+    .project-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      gap: 24px;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      width: fit-content;
+      background: var(--accent);
+      color: var(--text);
+      padding: 6px 8px;
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 20px;
+    }
+
+    .project-title {
+      max-width: 1050px;
+      font-size: clamp(58px, 11.5vw, 185px);
+      line-height: 0.78;
+      letter-spacing: -0.085em;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .project-title span {
+      color: var(--accent);
+      letter-spacing: -0.12em;
+    }
+
+    .project-meta {
+      border-left: 1px solid var(--line);
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .project-type {
+      font-size: 12px;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      font-weight: 950;
+    }
+
+    .project-copy {
+      max-width: 580px;
+      font-size: clamp(20px, 2.35vw, 36px);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+      font-weight: 850;
+      color: var(--bg);
+    }
+
+    .project-note {
+      font-size: 11px;
+      line-height: 1.25;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    .case-study {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 24px;
+      padding-top: 4px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 12px;
+      line-height: 1.1;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 950;
+    }
+
+    .case-content {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      max-width: 1180px;
+    }
+
+    .case-block {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .block-kicker {
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+      font-size: 11px;
+      line-height: 1.15;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      font-weight: 900;
+    }
+
+    .block-kicker strong {
+      display: block;
+      color: var(--bg);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .logo-panel {
+      width: min(100%, 760px);
+      min-height: 360px;
+      border: 1px solid var(--soft-line);
+      background: var(--deep-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(32px, 6vw, 72px);
+      overflow: visible;
+    }
+
+    .logo-panel img {
+      display: block;
+      width: 100%;
+      max-width: 580px;
+      height: auto;
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      max-width: 960px;
+    }
+
+    .browser-card {
+      min-width: 0;
+    }
+
+    .browser-frame {
+      border: 1px solid var(--soft-line);
+      background: var(--card);
+      overflow: hidden;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.34);
+    }
+
+    .browser-bar {
+      height: 34px;
+      border-bottom: 1px solid rgba(17, 17, 17, 0.18);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 12px;
+      background: var(--card);
+    }
+
+    .browser-bar span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.92;
+    }
+
+    .browser-crop {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--card);
+    }
+
+    .browser-crop img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      image-rendering: auto;
+    }
+
+    .caption-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-top: 10px;
+      font-size: 11px;
+      line-height: 1.15;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .item-title { font-weight: 950; color: var(--bg); }
+    .item-detail { margin-top: 4px; color: var(--muted); }
+
+    .view-link {
+      white-space: nowrap;
+      color: var(--accent);
+      font-weight: 950;
+    }
+
+    .view-link:hover,
+    .view-link:focus-visible { color: var(--bg); }
+
+    .project-footer {
+      display: grid;
+      grid-template-columns: 1fr minmax(260px, 0.55fr);
+      gap: 24px;
+      align-items: end;
+      margin-top: auto;
+    }
+
+    .cta {
+      font-size: clamp(42px, 7vw, 112px);
+      line-height: 0.82;
+      letter-spacing: -0.08em;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .cta a { color: var(--accent); }
+    .cta a:hover, .cta a:focus-visible { color: var(--bg); }
+
+    .footer-meta {
+      border-left: 1px solid var(--line);
+      padding-left: 18px;
+      font-size: 12px;
+      line-height: 1.25;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    .footer-meta strong { color: var(--bg); }
+
+    @media (max-width: 900px) {
+      .project-page { padding: 16px; }
+
+      .topbar,
+      .project-hero,
+      .case-study,
+      .case-block,
+      .project-footer { grid-template-columns: 1fr; }
+
+      .nav { justify-content: space-between; gap: 12px; }
+
+      .project-meta,
+      .footer-meta {
+        border-left: none;
+        border-top: 1px solid var(--line);
+        padding-left: 0;
+        padding-top: 14px;
+      }
+
+      .project-title { font-size: clamp(58px, 18vw, 132px); }
+      .case-content { gap: 30px; }
+      .logo-panel { width: 100%; min-height: 320px; }
+      .preview-grid { max-width: 100%; gap: 14px; }
+    }
+
+    @media (max-width: 620px) {
+      .preview-grid { grid-template-columns: 1fr; }
+      .logo-panel { min-height: 260px; padding: 30px; }
+      .project-title { font-size: clamp(54px, 20vw, 96px); }
+      .project-copy { font-size: clamp(22px, 7vw, 34px); }
+      .caption-row { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="project-page">
+    <header class="topbar">
+      <div class="brand">Joshua Dabdee / Work</div>
+
+      <nav class="nav" aria-label="Project navigation">
+        <a href="index.html#work">Back to Work</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="project-hero">
+      <div>
+        <div class="eyebrow">Project / 03</div>
+
+        <h1 class="project-title">
+          Dental<br />
+          Office<br />
+          <span>Concept</span>
+        </h1>
+      </div>
+
+      <aside class="project-meta">
+        <div class="project-type">Spec Website / Logo Concept</div>
+
+        <p class="project-copy">
+          A speculative website and logo direction for a local dental practice, built around trust, clarity, and approachable professionalism.
+        </p>
+
+        <div class="project-note">
+          Selected identity and homepage mockups created to explore a polished digital presence for Dr. Graham&rsquo;s Dental Wellness Center.
+        </div>
+      </aside>
+    </section>
+
+    <section class="case-study" aria-label="Dental office work examples">
+      <div class="section-label">Selected Work</div>
+
+      <div class="case-content">
+        <article class="case-block">
+          <div class="block-kicker">
+            <strong>01 / Logo Concept</strong>
+            Identity Direction
+          </div>
+
+          <div>
+            <div class="logo-panel">
+              <img src="DG_logo.png" alt="Logo concept for Dr. Graham's Dental Wellness Center" />
+            </div>
+            <div class="caption-row">
+              <div>
+                <div class="item-title">Logo Concept</div>
+                <div class="item-detail">Primary identity mark</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="case-block">
+          <div class="block-kicker">
+            <strong>02 / Website Mockups</strong>
+            Cropped previews with full mockups linked below
+          </div>
+
+          <div class="preview-grid">
+            <div class="browser-card">
+              <div class="browser-frame">
+                <div class="browser-bar" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="browser-crop">
+                  <img src="DG_site_01.png" alt="Website mockup preview for Dr. Graham's Dental Wellness Center" />
+                </div>
+              </div>
+              <div class="caption-row">
+                <div>
+                  <div class="item-title">Website Mockup 01</div>
+                  <div class="item-detail">Homepage direction</div>
+                </div>
+                <a class="view-link" href="DG_site_01.png" target="_blank" rel="noopener noreferrer">View full mockup ↗</a>
+              </div>
+            </div>
+
+            <div class="browser-card">
+              <div class="browser-frame">
+                <div class="browser-bar" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="browser-crop">
+                  <img src="DG_site_02.png" alt="Alternate website mockup preview for Dr. Graham's Dental Wellness Center" />
+                </div>
+              </div>
+              <div class="caption-row">
+                <div>
+                  <div class="item-title">Website Mockup 02</div>
+                  <div class="item-detail">Alternate homepage direction</div>
+                </div>
+                <a class="view-link" href="DG_site_02.png" target="_blank" rel="noopener noreferrer">View full mockup ↗</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="project-footer">
+      <div class="cta">
+        Need something<br />
+        like this?<br />
+        <a href="mailto:jpdabdee@gmail.com">Email me.</a>
+      </div>
+
+      <div class="footer-meta">
+        <strong>Joshua Dabdee</strong><br />
+        Creative / Digital / Story<br />
+        Websites / Flyers / Messaging / Visual Direction
+      </div>
+    </section>
+  </main>
+</body>
+</html>

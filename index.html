@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Creative & Digital Services by Joshua Dabdee</title>
+
+  <style>
+    :root {
+      --bg: #f3f0e8;
+      --text: #111111;
+      --muted: #696969;
+      --line: #111111;
+      --accent: #ff3b12;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       SECTION 1 / HERO
+    ========================= */
+
+    .page {
+      min-height: 100vh;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      font-size: 12px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .brand {
+      font-weight: 800;
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      color: var(--text);
+    }
+
+    .nav a {
+      position: relative;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      flex: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+      gap: 24px;
+      padding-top: 30px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-width: 0;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      background: var(--accent);
+      color: var(--text);
+      padding: 6px 8px;
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 22px;
+    }
+
+    .hero-title {
+      font-size: clamp(58px, 14vw, 210px);
+      line-height: 0.78;
+      letter-spacing: -0.085em;
+      font-weight: 950;
+      text-transform: uppercase;
+      max-width: 1200px;
+    }
+
+    .amp {
+      color: var(--accent);
+      letter-spacing: -0.14em;
+    }
+
+    .hero-bottom-note {
+      margin-top: 28px;
+      font-size: 12px;
+      line-height: 1.25;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    .hero-right {
+      border-left: 1px solid var(--line);
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .meta {
+      font-size: 12px;
+      line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    .meta strong {
+      color: var(--text);
+      font-weight: 900;
+    }
+
+    .statement {
+      font-size: clamp(34px, 5vw, 78px);
+      line-height: 0.88;
+      letter-spacing: -0.07em;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .statement .accent-word {
+      color: var(--accent);
+    }
+
+    .description {
+      font-size: clamp(18px, 2vw, 28px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      max-width: 520px;
+    }
+
+    .services-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      font-size: 11px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .services-strip span {
+      border: 1px solid var(--line);
+      padding: 7px 8px;
+    }
+
+    .services-strip span:first-child {
+      background: var(--accent);
+      border-color: var(--accent);
+      font-weight: 900;
+    }
+
+    .hero-footer,
+    .contact-footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      padding-top: 12px;
+      font-size: 12px;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-footer div,
+    .contact-footer div {
+      border-right: 1px solid var(--line);
+      min-height: 34px;
+      padding-right: 12px;
+    }
+
+    .hero-footer div:last-child,
+    .contact-footer div:last-child {
+      border-right: none;
+    }
+
+    .num {
+      color: var(--accent);
+      font-weight: 950;
+    }
+
+    /* =========================
+       SHARED INTERIOR SECTIONS
+       SERVICES / WORK / PROCESS / CONTACT
+    ========================= */
+
+    .services-page,
+    .work-page,
+    .process-page,
+    .contact-page {
+      min-height: 100vh;
+      padding: 22px;
+      background: var(--bg);
+      color: var(--text);
+      border-top: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-page {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dark-section {
+      background: var(--text);
+      color: var(--bg);
+      border-top-color: var(--bg);
+    }
+
+    .dark-section .section-header,
+    .dark-section .contact-grid,
+    .dark-section .services-art,
+    .dark-section .work-art,
+    .dark-section .process-art,
+    .dark-section .contact-art,
+    .dark-section .small-index,
+    .dark-section .work-small-index,
+    .dark-section .process-small-index,
+    .dark-section .contact-small-index,
+    .dark-section .services-list,
+    .dark-section .work-list,
+    .dark-section .process-list,
+    .dark-section .service-row,
+    .dark-section .work-row,
+    .dark-section .process-row,
+    .dark-section .contact-actions,
+    .dark-section .contact-card,
+    .dark-section .contact-footer div {
+      border-color: rgba(243, 240, 232, 0.78);
+    }
+
+    .dark-section .section-note,
+    .dark-section .small-index,
+    .dark-section .work-small-index,
+    .dark-section .process-small-index,
+    .dark-section .contact-small-index,
+    .dark-section .service-content p,
+    .dark-section .work-content p,
+    .dark-section .process-content p,
+    .dark-section .contact-card-label {
+      color: rgba(243, 240, 232, 0.68);
+    }
+
+    .dark-section .small-index strong,
+    .dark-section .work-small-index strong,
+    .dark-section .process-small-index strong,
+    .dark-section .contact-small-index strong,
+    .dark-section .work-content a.work-title,
+    .dark-section .work-content h2,
+    .dark-section .process-content h2,
+    .dark-section .service-content h2,
+    .dark-section .contact-card a {
+      color: var(--bg);
+    }
+
+    .dark-section .work-content a.work-title:hover,
+    .dark-section .contact-card a:hover,
+    .dark-section .service-row:hover h2,
+    .dark-section .work-row:hover h2,
+    .dark-section .process-row:hover h2 {
+      color: var(--accent);
+    }
+
+    .dark-section .work-content a.work-title:hover::after,
+    .dark-section .service-row:hover .service-number,
+    .dark-section .work-row:hover .work-number,
+    .dark-section .process-row:hover .process-number {
+      color: var(--bg);
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 90px 1fr auto;
+      align-items: center;
+      gap: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      font-size: 12px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .section-header .section-number {
+      color: var(--accent);
+      font-weight: 950;
+    }
+
+    .section-header .section-title {
+      font-weight: 900;
+    }
+
+    .section-header .section-note {
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .services-grid,
+    .work-grid,
+    .process-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.68fr 1.32fr;
+      gap: 28px;
+      padding-top: 24px;
+    }
+
+    .services-grid,
+    .work-grid,
+    .process-grid {
+      min-height: calc(100vh - 62px);
+    }
+
+    .contact-grid {
+      flex: 1;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .services-art,
+    .work-art,
+    .process-art,
+    .contact-art {
+      position: relative;
+      border-right: 1px solid var(--line);
+      padding-right: 22px;
+      min-width: 0;
+    }
+
+    .giant-make,
+    .giant-work,
+    .giant-flow,
+    .giant-send {
+      position: sticky;
+      top: 22px;
+      font-size: clamp(72px, 13vw, 205px);
+      line-height: 0.74;
+      letter-spacing: -0.12em;
+      font-weight: 950;
+      text-transform: uppercase;
+      color: var(--accent);
+      transform: translateX(-0.035em);
+      max-width: 100%;
+      overflow-wrap: normal;
+    }
+
+    .make-caption,
+    .work-caption,
+    .process-caption {
+      margin-top: 18px;
+      max-width: 420px;
+      font-size: clamp(20px, 2.2vw, 34px);
+      line-height: 0.96;
+      letter-spacing: -0.045em;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .make-caption span,
+    .work-caption span,
+    .process-caption span,
+    .contact-statement span {
+      color: var(--accent);
+    }
+
+    .small-index,
+    .work-small-index,
+    .process-small-index,
+    .contact-small-index {
+      position: absolute;
+      left: 0;
+      right: 22px;
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      font-size: 11px;
+      line-height: 1.25;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    .small-index,
+    .work-small-index,
+    .process-small-index {
+      bottom: 0;
+    }
+
+    .contact-small-index {
+      bottom: 22px;
+    }
+
+    .small-index strong,
+    .work-small-index strong,
+    .process-small-index strong,
+    .contact-small-index strong {
+      color: var(--text);
+    }
+
+    .services-list,
+    .work-list,
+    .process-list {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--line);
+    }
+
+    .service-row,
+    .work-row,
+    .process-row {
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .service-row {
+      padding: 23px 0 26px 0;
+    }
+
+    .work-row,
+    .process-row {
+      padding: 28px 0 32px 0;
+    }
+
+    .service-number,
+    .work-number,
+    .process-number {
+      color: var(--accent);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .service-content h2,
+    .work-content h2,
+    .work-content a.work-title,
+    .process-content h2 {
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .service-content h2 {
+      font-size: clamp(34px, 5.2vw, 78px);
+      line-height: 0.84;
+      letter-spacing: -0.075em;
+    }
+
+    .work-content h2,
+    .work-content a.work-title,
+    .process-content h2 {
+      display: inline-block;
+      color: var(--text);
+      font-size: clamp(38px, 6vw, 92px);
+      line-height: 0.82;
+      letter-spacing: -0.08em;
+    }
+
+    .work-content a.work-title::after {
+      content: " ↗";
+      color: var(--accent);
+      letter-spacing: -0.08em;
+    }
+
+    .work-content a.work-title:hover {
+      color: var(--accent);
+    }
+
+    .work-content a.work-title:hover::after {
+      color: var(--text);
+    }
+
+    .work-type,
+    .process-type {
+      margin-top: 10px;
+      font-size: 12px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 900;
+      color: var(--accent);
+    }
+
+    .service-content p,
+    .work-content p,
+    .process-content p {
+      margin-top: 10px;
+      font-size: clamp(17px, 1.65vw, 25px);
+      line-height: 1.04;
+      letter-spacing: -0.035em;
+      color: var(--muted);
+    }
+
+    .service-content p {
+      max-width: 620px;
+    }
+
+    .work-content p,
+    .process-content p {
+      max-width: 700px;
+    }
+
+    .service-row:hover h2,
+    .work-row:hover h2,
+    .process-row:hover h2 {
+      color: var(--accent);
+    }
+
+    .service-row:hover .service-number,
+    .work-row:hover .work-number,
+    .process-row:hover .process-number {
+      color: var(--text);
+    }
+
+
+
+    .work-action {
+      display: inline-block;
+      margin-top: 12px;
+      border: 1px solid currentColor;
+      padding: 7px 9px;
+      font-size: 10px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 950;
+      color: var(--accent);
+    }
+
+    .work-action:hover,
+    .work-action:focus-visible {
+      color: var(--text);
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .dark-section .work-action:hover,
+    .dark-section .work-action:focus-visible {
+      color: var(--text);
+    }
+
+    /* =========================
+       SECTION 5 / CONTACT-SPECIFIC
+    ========================= */
+
+    .contact-main {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 32px;
+      min-width: 0;
+    }
+
+    .contact-statement {
+      max-width: 980px;
+      font-size: clamp(58px, 9vw, 150px);
+      line-height: 0.82;
+      letter-spacing: -0.085em;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .contact-copy {
+      max-width: 760px;
+      font-size: clamp(22px, 3vw, 46px);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+    }
+
+    .contact-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      margin-bottom: 22px;
+    }
+
+    .contact-card {
+      border: 1px solid var(--line);
+      padding: 14px;
+      min-height: 112px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-transform: uppercase;
+    }
+
+    .contact-card-label {
+      font-size: 11px;
+      line-height: 1;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      font-weight: 900;
+    }
+
+    .contact-card a,
+    .contact-card div:last-child {
+      font-size: clamp(22px, 3.3vw, 52px);
+      line-height: 0.9;
+      letter-spacing: -0.065em;
+      font-weight: 950;
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    .contact-card a:hover {
+      color: var(--accent);
+    }
+
+
+
+    /* =========================
+       INTERIOR SCALE-DOWN PASS
+       Keeps page 1 dominant while making sections 2-5 feel like body pages
+    ========================= */
+
+    .services-page,
+    .work-page,
+    .process-page,
+    .contact-page {
+      min-height: auto;
+      padding-top: 22px;
+      padding-bottom: 34px;
+    }
+
+    .services-grid,
+    .work-grid,
+    .process-grid {
+      min-height: auto;
+      grid-template-columns: 0.5fr 1.5fr;
+      padding-top: 18px;
+    }
+
+    .contact-grid {
+      grid-template-columns: 0.5fr 1.5fr;
+      padding-top: 18px;
+      min-height: auto;
+    }
+
+    .giant-make,
+    .giant-work,
+    .giant-flow,
+    .giant-send {
+      font-size: clamp(54px, 8.5vw, 128px);
+      line-height: 0.78;
+      letter-spacing: -0.105em;
+    }
+
+    .make-caption,
+    .work-caption,
+    .process-caption {
+      font-size: clamp(17px, 1.6vw, 25px);
+      line-height: 0.98;
+      max-width: 320px;
+    }
+
+    .small-index,
+    .work-small-index,
+    .process-small-index,
+    .contact-small-index {
+      position: relative;
+      bottom: auto;
+      margin-top: 42px;
+      right: auto;
+    }
+
+    .service-row {
+      padding: 18px 0 20px 0;
+    }
+
+    .work-row,
+    .process-row {
+      padding: 20px 0 23px 0;
+    }
+
+    .service-content h2 {
+      font-size: clamp(27px, 3.8vw, 56px);
+      line-height: 0.88;
+      letter-spacing: -0.065em;
+    }
+
+    .work-content h2,
+    .work-content a.work-title,
+    .process-content h2 {
+      font-size: clamp(30px, 4.3vw, 64px);
+      line-height: 0.86;
+      letter-spacing: -0.068em;
+    }
+
+    .service-content p,
+    .work-content p,
+    .process-content p {
+      font-size: clamp(15px, 1.35vw, 20px);
+      line-height: 1.12;
+      max-width: 620px;
+    }
+
+    .contact-statement {
+      font-size: clamp(42px, 6.4vw, 98px);
+      line-height: 0.86;
+      letter-spacing: -0.078em;
+      max-width: 760px;
+    }
+
+    .contact-copy {
+      font-size: clamp(19px, 2vw, 32px);
+      line-height: 1.02;
+      max-width: 640px;
+    }
+
+    .contact-actions {
+      grid-template-columns: 1fr;
+      max-width: 720px;
+      margin-bottom: 18px;
+    }
+
+    .contact-card {
+      min-height: 96px;
+    }
+
+    .contact-card a,
+    .contact-card div:last-child {
+      font-size: clamp(24px, 3vw, 42px);
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 820px) {
+      .page,
+      .services-page,
+      .work-page,
+      .process-page,
+      .contact-page {
+        padding: 16px;
+      }
+
+      .topbar {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .nav {
+        justify-content: space-between;
+        gap: 12px;
+        width: 100%;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 26px;
+        padding-top: 22px;
+      }
+
+      .hero-title {
+        font-size: clamp(62px, 22vw, 132px);
+        line-height: 0.8;
+      }
+
+      .hero-right {
+        border-left: none;
+        border-top: 1px solid var(--line);
+        padding-left: 0;
+        padding-top: 14px;
+      }
+
+      .statement {
+        font-size: clamp(46px, 14vw, 82px);
+      }
+
+      .description {
+        font-size: clamp(22px, 7vw, 38px);
+      }
+
+      .hero-footer,
+      .contact-footer {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .hero-footer div,
+      .contact-footer div {
+        border-right: none;
+        border-top: 1px solid var(--line);
+        padding-top: 8px;
+        min-height: auto;
+      }
+
+      .section-header {
+        grid-template-columns: 54px 1fr;
+      }
+
+      .section-header .section-note {
+        grid-column: 1 / -1;
+        text-align: left;
+      }
+
+      .services-grid,
+      .work-grid,
+      .process-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        gap: 18px;
+      }
+
+      .services-art,
+      .work-art,
+      .process-art,
+      .contact-art {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        padding-right: 0;
+        padding-bottom: 16px;
+      }
+
+      .giant-make,
+      .giant-work,
+      .giant-flow,
+      .giant-send {
+        position: relative;
+        top: auto;
+        font-size: clamp(74px, 24vw, 138px);
+        transform: translateX(-0.035em);
+      }
+
+      .make-caption,
+      .work-caption,
+      .process-caption {
+        font-size: clamp(30px, 9vw, 52px);
+        max-width: 520px;
+      }
+
+      .small-index,
+      .work-small-index,
+      .process-small-index,
+      .contact-small-index {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin-top: 52px;
+        grid-template-columns: 1fr;
+      }
+
+      .service-row,
+      .work-row,
+      .process-row {
+        grid-template-columns: 50px 1fr;
+        gap: 12px;
+      }
+
+      .service-row {
+        padding: 18px 0 20px;
+      }
+
+      .work-row,
+      .process-row {
+        padding: 22px 0 24px;
+      }
+
+      .service-content h2,
+      .work-content h2,
+      .work-content a.work-title,
+      .process-content h2 {
+        font-size: clamp(35px, 11vw, 64px);
+      }
+
+      .service-content p,
+      .work-content p,
+      .process-content p {
+        font-size: clamp(18px, 5.5vw, 26px);
+      }
+
+      .contact-statement {
+        font-size: clamp(54px, 15vw, 92px);
+      }
+
+      .contact-copy {
+        font-size: clamp(28px, 8vw, 52px);
+      }
+
+      .contact-actions {
+        grid-template-columns: 1fr;
+        margin-bottom: 16px;
+      }
+
+      .contact-card a,
+      .contact-card div:last-child {
+        font-size: clamp(28px, 8vw, 52px);
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero-title {
+        font-size: clamp(56px, 21vw, 104px);
+      }
+
+      .statement {
+        font-size: clamp(40px, 13vw, 64px);
+      }
+
+      .services-strip span {
+        font-size: 10px;
+        padding: 6px 7px;
+      }
+
+      .service-row,
+      .work-row,
+      .process-row {
+        grid-template-columns: 42px 1fr;
+      }
+
+      .service-content h2,
+      .work-content h2,
+      .work-content a.work-title,
+      .process-content h2 {
+        letter-spacing: -0.065em;
+      }
+
+      .contact-statement {
+        letter-spacing: -0.075em;
+      }
+
+      .contact-card {
+        min-height: 98px;
+      }
+    }
+
+
+    @media (max-width: 820px) {
+      .services-page,
+      .work-page,
+      .process-page,
+      .contact-page {
+        padding-bottom: 28px;
+      }
+
+      .giant-make,
+      .giant-work,
+      .giant-flow,
+      .giant-send {
+        font-size: clamp(58px, 18vw, 104px);
+      }
+
+      .make-caption,
+      .work-caption,
+      .process-caption {
+        font-size: clamp(23px, 7vw, 38px);
+      }
+
+      .service-content h2,
+      .work-content h2,
+      .work-content a.work-title,
+      .process-content h2 {
+        font-size: clamp(31px, 9.5vw, 54px);
+      }
+
+      .contact-statement {
+        font-size: clamp(44px, 13vw, 78px);
+      }
+
+      .contact-copy {
+        font-size: clamp(24px, 7vw, 42px);
+      }
+    }
+
+
+
+    /* =========================
+       REFINEMENT PASS / LOWER TEXT VOLUME
+       Big section words stay bold; row text becomes quieter and more portfolio-like
+    ========================= */
+
+    .services-page,
+    .work-page,
+    .process-page,
+    .contact-page {
+      padding-bottom: 48px;
+    }
+
+    .services-grid,
+    .work-grid,
+    .process-grid,
+    .contact-grid {
+      grid-template-columns: 0.48fr 1.52fr;
+      gap: 34px;
+    }
+
+    .service-row,
+    .work-row,
+    .process-row {
+      grid-template-columns: 68px 1fr;
+      gap: 18px;
+    }
+
+    .service-row {
+      padding: 24px 0 28px 0;
+    }
+
+    .work-row,
+    .process-row {
+      padding: 28px 0 32px 0;
+    }
+
+    .service-content h2,
+    .work-content h2,
+    .work-content a.work-title,
+    .process-content h2 {
+      font-size: clamp(23px, 2.8vw, 44px);
+      line-height: 0.92;
+      letter-spacing: -0.055em;
+    }
+
+    .work-type,
+    .process-type {
+      margin-top: 8px;
+      font-size: 11px;
+      line-height: 1.15;
+      letter-spacing: 0.045em;
+    }
+
+    .service-content p,
+    .work-content p,
+    .process-content p {
+      margin-top: 9px;
+      font-size: clamp(13px, 1vw, 16px);
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      max-width: 520px;
+      opacity: 0.78;
+    }
+
+    .work-list {
+      border-top-width: 1px;
+    }
+
+    .work-row {
+      align-items: start;
+    }
+
+    @media (min-width: 821px) {
+      .work-content p {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        margin-top: 0;
+        transition: max-height 0.25s ease, opacity 0.25s ease, margin-top 0.25s ease;
+      }
+
+      .work-row:hover .work-content p,
+      .work-row:focus-within .work-content p {
+        max-height: 90px;
+        opacity: 0.72;
+        margin-top: 10px;
+      }
+    }
+
+    .contact-statement {
+      font-size: clamp(38px, 5.4vw, 82px);
+      max-width: 680px;
+    }
+
+    .contact-copy {
+      font-size: clamp(17px, 1.55vw, 26px);
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+      font-weight: 800;
+      max-width: 540px;
+      opacity: 0.82;
+    }
+
+    .contact-card {
+      min-height: 82px;
+      padding: 13px;
+    }
+
+    .contact-card a,
+    .contact-card div:last-child {
+      font-size: clamp(20px, 2.2vw, 34px);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+    }
+
+    @media (max-width: 820px) {
+      .services-grid,
+      .work-grid,
+      .process-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .service-row,
+      .work-row,
+      .process-row {
+        grid-template-columns: 44px 1fr;
+        gap: 12px;
+      }
+
+      .service-content h2,
+      .work-content h2,
+      .work-content a.work-title,
+      .process-content h2 {
+        font-size: clamp(28px, 8.6vw, 50px);
+        line-height: 0.9;
+        letter-spacing: -0.06em;
+      }
+
+      .service-content p,
+      .work-content p,
+      .process-content p {
+        font-size: clamp(15px, 4.4vw, 20px);
+        line-height: 1.25;
+      }
+
+      .contact-statement {
+        font-size: clamp(42px, 12vw, 74px);
+      }
+
+      .contact-copy {
+        font-size: clamp(20px, 5.8vw, 34px);
+      }
+    }
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- SECTION 1 -->
+  <main class="page" id="top">
+
+    <header class="topbar">
+      <div class="brand">Joshua Dabdee</div>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+
+      <div class="hero-left">
+        <div>
+          <h1 class="hero-title">
+            Creative<br />
+            <span class="amp">&</span> Digital<br />
+            Services
+          </h1>
+        </div>
+
+        <div class="hero-bottom-note">
+          Websites / Flyers / Messaging / Launch Pages / Visual Ideas
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="meta">
+          <strong>By Joshua Dabdee</strong><br />
+          Los Angeles, CA / 2026<br />
+          Built for people with ideas that need form.
+        </div>
+
+        <div class="statement">
+          Make it clear.<br />
+          Make it look <span class="accent-word">real.</span>
+        </div>
+
+        <p class="description">
+          I help turn rough ideas into clean, useful creative assets people can post, print, send, launch, or build from.
+        </p>
+
+        <div class="services-strip">
+          <span>Available</span>
+          <span>Flyers</span>
+          <span>Websites</span>
+          <span>Copy</span>
+          <span>Concepts</span>
+          <span>Direction</span>
+        </div>
+      </aside>
+
+    </section>
+
+    <section class="hero-footer">
+      <div><span class="num">01</span> / Shape the message.</div>
+      <div><span class="num">02</span> / Build the look.</div>
+      <div><span class="num">03</span> / Send the thing out. ↓</div>
+    </section>
+
+  </main>
+
+  <!-- SECTION 2 -->
+  <section class="services-page" id="services">
+
+    <header class="section-header">
+      <div class="section-number">02</div>
+      <div class="section-title">Things I Can Make</div>
+      <div class="section-note">Capabilities / Creative Services / Digital Builds</div>
+    </header>
+
+    <div class="services-grid">
+
+      <div class="services-art">
+        <div class="giant-make">MAKE</div>
+
+        <div class="make-caption">
+          Rough idea in.<br />
+          Clear useful thing <span>out.</span>
+        </div>
+
+        <div class="small-index">
+          <div>
+            <strong>Built for</strong><br />
+            small businesses / creators / therapists / authors / podcasts
+          </div>
+
+          <div>
+            <strong>Output</strong><br />
+            post it / print it / send it / launch it / build from it
+          </div>
+        </div>
+      </div>
+
+      <div class="services-list">
+
+        <article class="service-row">
+          <div class="service-number">01</div>
+          <div class="service-content">
+            <h2>Websites / Landing Pages</h2>
+            <p>Simple sites, personal pages, launch pages, promo pages, and clean digital homes for an idea.</p>
+          </div>
+        </article>
+
+        <article class="service-row">
+          <div class="service-number">02</div>
+          <div class="service-content">
+            <h2>Flyers / Promo Graphics</h2>
+            <p>Digital flyers, print flyers, event graphics, service promos, and pieces people can actually share.</p>
+          </div>
+        </article>
+
+        <article class="service-row">
+          <div class="service-number">03</div>
+          <div class="service-content">
+            <h2>Visual Direction</h2>
+            <p>Mood boards, layout ideas, brand feel, references, and AI-assisted concepts to find the look.</p>
+          </div>
+        </article>
+
+        <article class="service-row">
+          <div class="service-number">04</div>
+          <div class="service-content">
+            <h2>Content Ideas</h2>
+            <p>Social posts, YouTube ideas, campaign concepts, launch plans, and creative angles worth building around.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SECTION 3 -->
+  <section class="work-page dark-section" id="work">
+
+    <header class="section-header">
+      <div class="section-number">03</div>
+      <div class="section-title">Work / Tests / Builds</div>
+      <div class="section-note">Live Builds / Client-Facing Pieces / Spec Concepts</div>
+    </header>
+
+    <div class="work-grid">
+
+      <div class="work-art">
+        <div class="giant-work">WORK</div>
+
+        <div class="work-caption">
+          Things made,<br />
+          tested, shaped,<br />
+          and built <span>out.</span>
+        </div>
+
+        <div class="work-small-index">
+          <div>
+            <strong>Includes</strong><br />
+            websites / flyers / logos / identity / concepts
+          </div>
+
+          <div>
+            <strong>Status</strong><br />
+            live builds / client-facing work / speculative concepts
+          </div>
+        </div>
+      </div>
+
+      <div class="work-list">
+
+        <article class="work-row">
+          <div class="work-number">01</div>
+          <div class="work-content">
+            <a class="work-title" href="https://joshuadabdee.com" target="_blank" rel="noopener noreferrer">
+              Joshuadabdee.com
+            </a>
+            <div class="work-type">Personal Website / Live Build</div>
+            <p>
+              A personal portfolio site built to showcase story producing, editing, credits, and creative identity.
+            </p>
+            <a class="work-action" href="https://joshuadabdee.com" target="_blank" rel="noopener noreferrer">View live site ↗</a>
+          </div>
+        </article>
+
+        <article class="work-row">
+          <div class="work-number">02</div>
+          <div class="work-content">
+            <a class="work-title" href="ashlei-lien.html">Ashlei Lien &amp; Associates</a>
+            <div class="work-type">Flyers / Practice Promo / Logo / Identity Exploration</div>
+            <p>
+              Promotional and identity materials for a therapy practice, including outreach flyers, a mini card, and logo exploration.
+            </p>
+            <a class="work-action" href="ashlei-lien.html">View project ↗</a>
+          </div>
+        </article>
+
+        <article class="work-row">
+          <div class="work-number">03</div>
+          <div class="work-content">
+            <a class="work-title" href="dental-office.html">Dental Office</a>
+            <div class="work-type">Spec Website / Logo Concept</div>
+            <p>
+              A speculative website and logo direction for a local dental office, built around trust, clarity, and approachable professionalism.
+            </p>
+            <a class="work-action" href="dental-office.html">View project ↗</a>
+          </div>
+        </article>
+
+        <article class="work-row">
+          <div class="work-number">04</div>
+          <div class="work-content">
+            <a class="work-title" href="dance-studio.html">Dance Studio</a>
+            <div class="work-type">Spec Website / Logo Concept</div>
+            <p>
+              A speculative visual direction and website concept for a dance studio, built around movement, energy, confidence, and community.
+            </p>
+            <a class="work-action" href="dance-studio.html">View project ↗</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- SECTION 4 -->
+  <section class="process-page" id="process">
+
+    <header class="section-header">
+      <div class="section-number">04</div>
+      <div class="section-title">How It Works</div>
+      <div class="section-note">Idea / Message / Build / Use</div>
+    </header>
+
+    <div class="process-grid">
+
+      <div class="process-art">
+        <div class="giant-flow">FLOW</div>
+
+        <div class="process-caption">
+          Messy idea in.<br />
+          Clear useful thing <span>out.</span>
+        </div>
+
+        <div class="process-small-index">
+          <div>
+            <strong>Process</strong><br />
+            loose thoughts / clean direction / usable asset
+          </div>
+
+          <div>
+            <strong>Goal</strong><br />
+            make the thing clear enough to send, post, print, or launch
+          </div>
+        </div>
+      </div>
+
+      <div class="process-list">
+
+        <article class="process-row">
+          <div class="process-number">01</div>
+          <div class="process-content">
+            <h2>Send The Idea</h2>
+            <div class="process-type">What You Have / What You Need / What It Is For</div>
+            <p>
+              You bring the rough version: a service, event, business, podcast, book, offer, or half-formed creative problem.
+            </p>
+          </div>
+        </article>
+
+        <article class="process-row">
+          <div class="process-number">02</div>
+          <div class="process-content">
+            <h2>Shape The Message</h2>
+            <div class="process-type">Words / Positioning / Direction</div>
+            <p>
+              I help figure out what the thing should say, who it is for, and what people need to understand first.
+            </p>
+          </div>
+        </article>
+
+        <article class="process-row">
+          <div class="process-number">03</div>
+          <div class="process-content">
+            <h2>Build The Look</h2>
+            <div class="process-type">Layout / Visual System / Digital Asset</div>
+            <p>
+              We turn the message into a clear visual direction: website, flyer, logo concept, landing page, promo graphic, or launch material.
+            </p>
+          </div>
+        </article>
+
+        <article class="process-row">
+          <div class="process-number">04</div>
+          <div class="process-content">
+            <h2>Use The Thing</h2>
+            <div class="process-type">Post It / Print It / Send It / Launch It</div>
+            <p>
+              The final piece should be practical. Something you can actually use, share, test, update, or build from.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SECTION 5 -->
+  <section class="contact-page dark-section" id="contact">
+
+    <header class="section-header">
+      <div class="section-number">05</div>
+      <div class="section-title">Contact</div>
+      <div class="section-note">Small Projects / Fast Builds / Creative Direction</div>
+    </header>
+
+    <div class="contact-grid">
+
+      <div class="contact-art">
+        <div class="giant-send">SEND</div>
+
+        <div class="contact-small-index">
+          <div>
+            <strong>Start with</strong><br />
+            what you need / when you need it / where it will live
+          </div>
+
+          <div>
+            <strong>Good for</strong><br />
+            flyers / websites / messaging / concepts / digital polish
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-main">
+        <div>
+          <div class="contact-statement">
+            Need something <span>made?</span>
+          </div>
+
+          <p class="contact-copy">
+            Send me the rough idea. I’ll help shape it into something clear, useful, and good-looking.
+          </p>
+        </div>
+
+        <div class="contact-actions">
+          <div class="contact-card">
+            <div class="contact-card-label">Email</div>
+            <a href="mailto:jpdabdee@gmail.com">jpdabdee@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <section class="contact-footer">
+      <div><span class="num">01</span> / Shape the message.</div>
+      <div><span class="num">02</span> / Build the look.</div>
+      <div><span class="num">03</span> / Send the thing out.</div>
+    </section>
+
+  </section>
+
+
+</body>
+</html>
