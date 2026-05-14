@@ -6,6 +6,8 @@
 
   <title>Creative & Digital Services by Joshua Dabdee</title>
 
+  <link rel="canonical" href="https://jpdabdee-cmd.github.io/JD-creative-services/">
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png?v=1">
   <link rel="shortcut icon" href="favicon.png?v=1">
@@ -17,6 +19,7 @@
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Joshua Dabdee Creative Services">
   <meta property="og:title" content="Creative & Digital Services by Joshua Dabdee">
   <meta property="og:description" content="Websites, flyers, messaging, visual direction, and creative assets for people with ideas that need form.">
   <meta property="og:image" content="https://jpdabdee-cmd.github.io/JD-creative-services/social-preview.png">
@@ -27,6 +30,7 @@
   <meta name="twitter:title" content="Creative & Digital Services by Joshua Dabdee">
   <meta name="twitter:description" content="Websites, flyers, messaging, visual direction, and creative assets for people with ideas that need form.">
   <meta name="twitter:image" content="https://jpdabdee-cmd.github.io/JD-creative-services/social-preview.png">
+  <meta name="twitter:url" content="https://jpdabdee-cmd.github.io/JD-creative-services/">
 
 
   <style>
@@ -541,7 +545,7 @@
     }
 
     .work-content a.work-title::after {
-      content: " ↗";
+      content: " ↗︎";
       color: var(--accent);
       letter-spacing: -0.08em;
     }
@@ -1211,6 +1215,109 @@
     }
 
 
+
+    /* =========================
+       FINAL MOBILE / LANDSCAPE CLEANUP
+       Removes top brand, protects mobile text from edge clipping,
+       keeps work titles/arrows clean, and contains section words in landscape.
+    ========================= */
+
+    @media (max-width: 820px) {
+      .hero-title {
+        font-size: clamp(56px, 19.5vw, 118px);
+        line-height: 0.82;
+        letter-spacing: -0.075em;
+        max-width: calc(100vw - 40px);
+      }
+
+      .hero-footer .num {
+        display: none;
+      }
+
+      .hero-footer div {
+        font-weight: 900;
+      }
+
+      .work-content,
+      .work-content a.work-title,
+      .work-type,
+      .work-content p {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .work-content a.work-title {
+        display: inline;
+        overflow-wrap: anywhere;
+        word-break: normal;
+        hyphens: none;
+      }
+
+      .work-content h2,
+      .work-content a.work-title {
+        font-size: clamp(24px, 7.6vw, 42px);
+        line-height: 0.96;
+        letter-spacing: -0.04em;
+      }
+
+      .work-type {
+        font-size: 10px;
+        line-height: 1.35;
+        letter-spacing: 0.035em;
+        overflow-wrap: anywhere;
+      }
+
+      .work-content p {
+        font-size: clamp(14px, 4vw, 18px);
+        line-height: 1.32;
+        letter-spacing: 0;
+      }
+
+      .work-content a.work-title::after {
+        content: " ↗︎";
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 0.72em;
+        line-height: 1;
+        vertical-align: 0.08em;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero-title {
+        font-size: clamp(50px, 18.5vw, 92px);
+        max-width: calc(100vw - 36px);
+      }
+    }
+
+    @media (max-width: 920px) and (orientation: landscape) {
+      .services-grid,
+      .work-grid,
+      .process-grid,
+      .contact-grid {
+        grid-template-columns: 0.42fr 1.58fr;
+        gap: 24px;
+      }
+
+      .giant-make,
+      .giant-work,
+      .giant-flow,
+      .giant-send {
+        font-size: clamp(44px, 11vw, 76px);
+        line-height: 0.82;
+        letter-spacing: -0.09em;
+      }
+
+      .services-art,
+      .work-art,
+      .process-art,
+      .contact-art {
+        overflow: hidden;
+      }
+    }
+
+
   </style>
 </head>
 
@@ -1220,8 +1327,6 @@
   <main class="page" id="top">
 
     <header class="topbar">
-      <div class="brand">Joshua Dabdee</div>
-
       <nav class="nav" aria-label="Main navigation">
         <a href="#work">Work</a>
         <a href="#services">Services</a>
@@ -1397,7 +1502,7 @@
             <p>
               A personal portfolio site built to showcase story producing, editing, credits, and creative identity.
             </p>
-            <a class="work-action" href="https://joshuadabdee.com" target="_blank" rel="noopener noreferrer">View live site ↗</a>
+            <a class="work-action" href="https://joshuadabdee.com" target="_blank" rel="noopener noreferrer">View live site ↗︎</a>
           </div>
         </article>
 
@@ -1409,7 +1514,7 @@
             <p>
               Promotional and identity materials for a therapy practice, including outreach flyers, a mini card, and logo exploration.
             </p>
-            <a class="work-action" href="ashlei-lien.html">View project ↗</a>
+            <a class="work-action" href="ashlei-lien.html">View project ↗︎</a>
           </div>
         </article>
 
@@ -1421,7 +1526,7 @@
             <p>
               A speculative website and logo direction for a local dental office, built around trust, clarity, and approachable professionalism.
             </p>
-            <a class="work-action" href="dental-office.html">View project ↗</a>
+            <a class="work-action" href="dental-office.html">View project ↗︎</a>
           </div>
         </article>
 
@@ -1433,7 +1538,7 @@
             <p>
               A speculative visual direction and website concept for a dance studio, built around movement, energy, confidence, and community.
             </p>
-            <a class="work-action" href="dance-studio.html">View project ↗</a>
+            <a class="work-action" href="dance-studio.html">View project ↗︎</a>
           </div>
         </article>
 
