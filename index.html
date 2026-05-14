@@ -1230,11 +1230,13 @@
         max-width: calc(100vw - 40px);
       }
 
-      .hero-footer .num {
+      .hero-footer .num,
+      .contact-footer .num {
         display: none;
       }
 
-      .hero-footer div {
+      .hero-footer div,
+      .contact-footer div {
         font-weight: 900;
       }
 
@@ -1296,24 +1298,35 @@
       .work-grid,
       .process-grid,
       .contact-grid {
-        grid-template-columns: 0.42fr 1.58fr;
-        gap: 24px;
-      }
-
-      .giant-make,
-      .giant-work,
-      .giant-flow,
-      .giant-send {
-        font-size: clamp(44px, 11vw, 76px);
-        line-height: 0.82;
-        letter-spacing: -0.09em;
+        grid-template-columns: 0.52fr 1.48fr;
+        gap: 20px;
       }
 
       .services-art,
       .work-art,
       .process-art,
       .contact-art {
-        overflow: hidden;
+        padding-right: 18px;
+        overflow: visible;
+      }
+
+      .giant-make,
+      .giant-work,
+      .giant-flow,
+      .giant-send {
+        font-size: clamp(36px, 8.4vw, 60px);
+        line-height: 0.88;
+        letter-spacing: -0.055em;
+        transform: none;
+        max-width: 100%;
+        white-space: nowrap;
+      }
+
+      .make-caption,
+      .work-caption,
+      .process-caption {
+        font-size: clamp(16px, 3.4vw, 24px);
+        max-width: 100%;
       }
     }
 
